@@ -1,0 +1,15 @@
+<ion-view view-title="Historico">
+  <ion-content class="padding">
+    <ion-list class="list" ng-repeat="flow in flows">
+      <ion-item class="item item-icon-left" href="#">
+          {{flow.reason}}, {{flow.date | date:'EEEE, MMMM d, y, h:mm a'}}
+          <span ng-class="({{flow.isOut}}) ? 'badge badge-assertive' : 'badge badge-balanced' ">
+            {{flow.money}}
+          </span>
+          <ion-option-button class="button-assertive" ng-click="remove(flow)">
+            Borrar
+          </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

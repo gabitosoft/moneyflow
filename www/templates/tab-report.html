@@ -1,0 +1,19 @@
+<ion-view view-title="Reportes">
+  <ion-content class="padding" ng-init="displayCharts()">
+    <div class="card">
+      <div class="item item-divider">
+        Ingresos,Egresos / Mes
+      </div>
+      <canvas id="lineChart" width="450"></canvas>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        Ingresos vs Egresos
+      </div>
+      <canvas id="pieChart" width="450"></canvas>
+    </div>
+    <button class="button button-block button-positive" ng-click="displayCharts()">
+      <i class="icon ion-refresh"></i>&nbsp;Refrescar
+    </button>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title="Registrar">
+  <ion-content class="padding">
+    <form ng-submit="save(flow)">
+      <div class="card">
+          <label class="item item-input">
+            <input type="text" placeholder="Motivo" ng-model="flow.reason" required/>
+          </label>
+          <label class="item item-input">
+            <input type="number" placeholder="Monto" ng-model="flow.money" required/>
+          </label>
+          <ion-checkbox ng-model="flow.isOut">Registrar como egreso</ion-checkbox>
+      </div>
+      <button type="submit" class="button button-block button-positive">Guardar</button>
+    </form>
+    <div class="card" ng-init="calculate()">
+      <div class="item item-divider">
+        Resultados
+      </div>
+      <div class="button-bar">
+        <a class="button button-clear button-positive">INGRESOS:</a>
+        <a class="button button-clear button-positive" ng-model="totalIn">{{totalIn}}</a>
+      </div>
+      <div class="button-bar">
+        <a class="button button-clear button-positive">EGRESOS:</a>
+        <a class="button button-clear button-positive" ng-model="totalOut">{{totalOut}}</a>
+      </div>
+      <div class="button-bar">
+        <a class="button button-clear button-positive">TOTAL:</a>
+        <!--<a ng-class="({{ totalIn > totalOut}}) ? 'button button-clear button-assertive' : 'button button-clear button-balanced' " ng-model="total">
+          {{total}}
+        </a>-->
+        <a class="button button-clear" ng-class="{'button-assertive': totalIn < totalOut, 'button-balanced': totalIn > totalOut}" ng-model="total">
+          {{total}}
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
